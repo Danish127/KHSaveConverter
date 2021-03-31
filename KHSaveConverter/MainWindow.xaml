@@ -1,0 +1,61 @@
+﻿<Window x:Class="KHSaveConverter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KHSaveConverter"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <TabControl>
+        <TabItem Header="KH1">
+            <Grid>
+                <Button x:Name="BrowseKH1DAT" Content="Browse..." HorizontalAlignment="Left" Margin="125,24,0,0" VerticalAlignment="Top" Click="BrowseKH1DAT_Click"/>
+                <Button x:Name="BrowseKH1PNG" Content="Browse..." HorizontalAlignment="Left" Margin="125,104,0,0" VerticalAlignment="Top" Click="BrowseKH1PNG_Click"/>
+                <Button Content="ConvertKH1" HorizontalAlignment="Left" Margin="3,216,0,0" VerticalAlignment="Top" Click="ConvertKH1_Click" Width="172"/>
+                <TextBox x:Name="FilePathKH1Bin" HorizontalAlignment="Left" Margin="0,26,0,0" Text="Path to .bin" VerticalAlignment="Top" Width="120" />
+                <TextBox x:Name="FilePathKH1PNG" HorizontalAlignment="Left" Margin="0,106,0,0" Text="Path to .png" VerticalAlignment="Top" Width="120"/>
+                <Label Content="Path to Bin File" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label Content="Path to PNG File" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,80,0,0"/>
+
+            </Grid>
+        </TabItem>
+        <TabItem Header="KH2">
+            <Grid>
+                <Button x:Name="BrowseKH2DAT" Content="Browse..." HorizontalAlignment="Left" Margin="125,24,0,0" VerticalAlignment="Top" Click="BrowseKH2DAT_Click"/>
+                <Button x:Name="BrowseKH2PNG" Content="Browse..." HorizontalAlignment="Left" Margin="125,104,0,0" VerticalAlignment="Top" Click="BrowseKH2PNG_Click"/>
+                <Button Content="ConvertKH2" HorizontalAlignment="Left" Margin="3,216,0,0" VerticalAlignment="Top" Click="ConvertKH2_Click" Width="172"/>
+                <TextBox x:Name="FilePathKH2Bin" HorizontalAlignment="Left" Margin="0,26,0,0" Text="Path to .bin" VerticalAlignment="Top" Width="120" />
+                <TextBox x:Name="FilePathKH2PNG" HorizontalAlignment="Left" Margin="0,106,0,0" Text="Path to .png" VerticalAlignment="Top" Width="120"/>
+                <Label Content="Path to Bin File" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label Content="Path to PNG File" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,80,0,0"/>
+
+            </Grid>
+        </TabItem>
+        <TabItem Header="KH:CoM">
+            <Grid>
+                <Button x:Name="BrowseCoMDAT" Content="Browse..." HorizontalAlignment="Left" Margin="125,24,0,0" VerticalAlignment="Top" Click="BrowseCoMDAT_Click"/>
+                <Button x:Name="BrowseComPNG" Content="Browse..." HorizontalAlignment="Left" Margin="125,104,0,0" VerticalAlignment="Top" Click="BrowseCoMPNG_Click"/>
+                <Button Content="ConvertCoM" HorizontalAlignment="Left" Margin="3,216,0,0" VerticalAlignment="Top" Click="ConvertCoM_Click" Width="172"/>
+                <TextBox x:Name="FilePathCoMBin" HorizontalAlignment="Left" Margin="0,26,0,0" Text="Path to .bin" VerticalAlignment="Top" Width="120" />
+                <TextBox x:Name="FilePathCoMPNG" HorizontalAlignment="Left" Margin="0,106,0,0" Text="Path to .png" VerticalAlignment="Top" Width="120"/>
+                <Label Content="Path to Bin File" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label Content="Path to PNG File" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,80,0,0"/>
+                <TextBox x:Name="SaveFileCoM" HorizontalAlignment="Left" Margin="0,158,0,0" Text="Save File" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
+            </Grid>
+        </TabItem>
+        <TabItem Header="KH:BBS">
+            <Grid>
+                <Button x:Name="BrowseBBSDAT" Content="Browse..." HorizontalAlignment="Left" Margin="125,24,0,0" VerticalAlignment="Top" Click="BrowseBBSDAT_Click"/>
+                <Button x:Name="BrowseBBSPNG" Content="Browse..." HorizontalAlignment="Left" Margin="125,104,0,0" VerticalAlignment="Top" Click="BrowseBBSPNG_Click"/>
+                <Button Content="ConvertBBS" HorizontalAlignment="Left" Margin="3,216,0,0" VerticalAlignment="Top" Click="ConvertBBS_Click" Width="172"/>
+                <TextBox x:Name="FilePathBBSBin" HorizontalAlignment="Left" Margin="0,26,0,0" Text="Path to .bin" VerticalAlignment="Top" Width="120" />
+                <TextBox x:Name="FilePathBBSPNG" HorizontalAlignment="Left" Margin="0,106,0,0" Text="Path to .png" VerticalAlignment="Top" Width="120"/>
+                <Label Content="Path to Bin File" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label Content="Path to PNG File" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,80,0,0"/>
+                <TextBox x:Name="SaveFileBBS" HorizontalAlignment="Left" Margin="0,158,0,0" Text="Save File" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>
