@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using KHSaveConverter.Classes;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -24,9 +25,130 @@ namespace KHSaveConverter
     /// </summary>
     public partial class MainWindow : Window
     {
+        KHSaveType SaveType;
+
+        List<string> SaveItems = new List<string>() {
+        "Replace All",
+        "Slot 1",
+        "Slot 2",
+        "Slot 3",
+        "Slot 4",
+        "Slot 5",
+        "Slot 6",
+        "Slot 7",
+        "Slot 8",
+        "Slot 9",
+        "Slot 10",
+
+        "Slot 11",
+        "Slot 12",
+        "Slot 13",
+        "Slot 14",
+        "Slot 15",
+        "Slot 16",
+        "Slot 17",
+        "Slot 18",
+        "Slot 19",
+        "Slot 20",
+
+        "Slot 21",
+        "Slot 22",
+        "Slot 23",
+        "Slot 24",
+        "Slot 25",
+        "Slot 26",
+        "Slot 27",
+        "Slot 28",
+        "Slot 29",
+        "Slot 30",
+
+        "Slot 31",
+        "Slot 32",
+        "Slot 33",
+        "Slot 34",
+        "Slot 35",
+        "Slot 36",
+        "Slot 37",
+        "Slot 38",
+        "Slot 39",
+        "Slot 40",
+
+        "Slot 41",
+        "Slot 42",
+        "Slot 43",
+        "Slot 44",
+        "Slot 45",
+        "Slot 46",
+        "Slot 47",
+        "Slot 48",
+        "Slot 49",
+        "Slot 50",
+
+        "Slot 51",
+        "Slot 52",
+        "Slot 53",
+        "Slot 54",
+        "Slot 55",
+        "Slot 56",
+        "Slot 57",
+        "Slot 58",
+        "Slot 59",
+        "Slot 60",
+
+        "Slot 61",
+        "Slot 62",
+        "Slot 63",
+        "Slot 64",
+        "Slot 65",
+        "Slot 66",
+        "Slot 67",
+        "Slot 68",
+        "Slot 69",
+        "Slot 70",
+
+        "Slot 71",
+        "Slot 72",
+        "Slot 73",
+        "Slot 74",
+        "Slot 75",
+        "Slot 76",
+        "Slot 77",
+        "Slot 78",
+        "Slot 79",
+        "Slot 80",
+
+        "Slot 81",
+        "Slot 82",
+        "Slot 83",
+        "Slot 84",
+        "Slot 85",
+        "Slot 86",
+        "Slot 87",
+        "Slot 88",
+        "Slot 89",
+        "Slot 90",
+
+        "Slot 91",
+        "Slot 92",
+        "Slot 93",
+        "Slot 94",
+        "Slot 95",
+        "Slot 96",
+        "Slot 97",
+        "Slot 98",
+        "Slot 99"
+        };
+        Dictionary<int, int> KH1PNGBegin = new Dictionary<int, int>();
+        Dictionary<int, int> KH1PNGEnd = new Dictionary<int, int>();
+        Dictionary<int, int> KH1DATBegin = new Dictionary<int, int>();
+        Dictionary<int, int> KH1DATEnd = new Dictionary<int, int>();
+
         public MainWindow()
         {
             InitializeComponent();
+
+            SaveIndex.ItemsSource = SaveItems;
+
         }
 
         private void ConvertKH1_Click(object sender, RoutedEventArgs e)
@@ -301,7 +423,7 @@ namespace KHSaveConverter
                         k++;
                     }
 
-                    if(confirmedbyte && Found != Save)
+                    if (confirmedbyte && Found != Save)
                     {
                         Found++;
                         confirmedbyte = false;
@@ -470,6 +592,78 @@ namespace KHSaveConverter
             OpenFileDialog openFileDialog = new OpenFileDialog() { Filter = "DAT File | *.DAT" };
             if (openFileDialog.ShowDialog() ?? true)
                 FilePathBBSBin.Text = openFileDialog.FileName;
+        }
+
+        private void Convert_Click(object sender, RoutedEventArgs e)
+        {
+            byte[] PNG = File.ReadAllBytes(FilePathPNG.Text);
+
+            int Save = 1;
+
+
+            if (!SaveType.Full)
+            {
+
+            }
+
+
+            for(int i = 0; i + SaveType.DataBeginOffset < (SaveType.Data.Length ); i++)
+            {
+                PNG[SaveType.PNGBeginOffset + i] = SaveType.Data[SaveType.DataBeginOffset + i];
+            }
+
+            System.IO.File.Move(FilePathPNG.Text, FilePathPNG.Text + ".BACKUP" + Save);
+
+            File.WriteAllBytes(FilePathPNG.Text, PNG);
+
+
+
+
+
+        }
+
+        private void BrowsePNG_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (NewSave.IsChecked ?? true)
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+            }
+            else
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog() { Filter = "PNG File | *.png" };
+                if (openFileDialog.ShowDialog() ?? true)
+                {
+                    FilePathPNG.Text = openFileDialog.FileName;
+                }
+            }
+
+        }
+
+        private void BrowseDAT_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog() { Filter = "DAT File|*.DAT|BIN File|*.bin" };
+            if (openFileDialog.ShowDialog() ?? true)
+            {
+                FilePathBin.Text = openFileDialog.FileName;
+                byte[] BinFile = File.ReadAllBytes(openFileDialog.FileName);
+
+                SaveType = new KHSaveType()
+                {
+                    FilePath = openFileDialog.FileName,
+                    Data = BinFile
+                };
+                SaveType.DetermineGame();
+                
+
+                RadioButton Selected = (RadioButton)this.FindName(SaveType.SelectedGame.ToString());
+                if(Selected != null)
+                {
+                    Selected.IsChecked = true;
+                }
+                
+
+            }
         }
     }
 }

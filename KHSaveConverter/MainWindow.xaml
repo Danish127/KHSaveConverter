@@ -62,11 +62,22 @@
                 <Button x:Name="BrowseDAT" Content="Browse..." HorizontalAlignment="Left" Margin="125,24,0,0" VerticalAlignment="Top" Click="BrowseDAT_Click"/>
                 <Button x:Name="BrowsePNG" Content="Browse..." HorizontalAlignment="Left" Margin="125,104,0,0" VerticalAlignment="Top" Click="BrowsePNG_Click"/>
                 <Button Content="Convert" HorizontalAlignment="Left" Margin="3,216,0,0" VerticalAlignment="Top" Click="Convert_Click" Width="172"/>
-                <TextBox x:Name="FilePathBin" HorizontalAlignment="Left" Margin="0,26,0,0" Text="Path to .bin" VerticalAlignment="Top" Width="120" />
+                <TextBox x:Name="FilePathBin" HorizontalAlignment="Left" Margin="0,26,0,0" Text="Path to .bin/.dat" VerticalAlignment="Top" Width="120" />
                 <TextBox x:Name="FilePathPNG" HorizontalAlignment="Left" Margin="0,106,0,0" Text="Path to .png" VerticalAlignment="Top" Width="120"/>
-                <Label Content="Path to Bin File" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label Content="Path to bin/DAT File" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 <Label Content="Path to PNG File" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,80,0,0"/>
-                <TextBox x:Name="SaveFile" HorizontalAlignment="Left" Margin="0,158,0,0" Text="Save File" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <ComboBox x:Name="SaveIndex" HorizontalAlignment="Left" Margin="3,157,0,0" VerticalAlignment="Top" Width="120"/>
+                <CheckBox x:Name="NewSave" Content="Save as new png" HorizontalAlignment="Left" Margin="266,121,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                
+                <StackPanel Margin="456,68,270,37">
+                    <RadioButton x:Name="KH1" Content="KH1" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="KHGame"/>
+                    <RadioButton x:Name="KHCoM" Content="KH:CoM" HorizontalAlignment="Left"  VerticalAlignment="Top" GroupName="KHGame"/>
+                    <RadioButton x:Name="KH2" Content="KH2" HorizontalAlignment="Left"  VerticalAlignment="Top" GroupName="KHGame"/>
+                    <RadioButton x:Name="KHBBS" Content="KH:BBS" HorizontalAlignment="Left"  VerticalAlignment="Top" GroupName="KHGame"/>
+                    <RadioButton Content="KH:DDD" HorizontalAlignment="Left"  VerticalAlignment="Top" GroupName="KHGame" IsEnabled="False"/>
+                    <RadioButton Content="KH:0.2" HorizontalAlignment="Left"  VerticalAlignment="Top" GroupName="KHGame" IsEnabled="False"/>
+                    <RadioButton Content="KH3" HorizontalAlignment="Left"  VerticalAlignment="Top" GroupName="KHGame" IsEnabled="False"/>
+                </StackPanel>
 
             </Grid>
         </TabItem>
